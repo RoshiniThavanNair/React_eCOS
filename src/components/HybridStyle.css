@@ -1,0 +1,581 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General Layout */
+  .page-content {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 0;
+    text-align: left;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .ecos-title {
+    font-size: 2em;
+    color: black;
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  /* Navigation */
+  .navigation {
+    display: flex;
+    justify-content: space-evenly; /* Ensures consistent space between items */
+    align-items: center;
+    margin-top: 80px; /* Adjusted for header height */
+    padding: 30px 0px;/* Increased padding for wider navigation */
+    background-color: white;
+    border-bottom: 2px solid #ddd;
+    width: 100%; /* Ensure it spans the full width */
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px; /* Increased margin to spread out the nav items */
+    text-align: center;
+    cursor: pointer;
+    color: #808080;
+  }
+  
+  .nav-item:hover {
+    color: lightblue;
+  }
+  
+  .nav-item.active {
+    color: blue;
+  }
+  
+  .nav-number {
+    width: 50px; /* Circle size */
+    height: 50px; /* Circle size */
+    border-radius: 50%;
+    background-color: #808080; /* Gray circle */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em; /* Larger number */
+    font-weight: bold;
+    margin-bottom: 8px; /* Spacing between number and label */
+  }
+  
+  .nav-label {
+    margin-top: 10px;
+    font-size: 1em; /* Slightly larger font size for better visibility */
+  }
+  
+  /* Info Box */
+  .info-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    flex-grow: 1;
+  }
+  
+  .info-box h2 {
+    color: black;
+    text-align: left;
+    font-size: 1.5em;
+  }
+  
+  /* Form Row and Label Styles */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color:black;
+  }
+  
+  .label-left {
+    flex: 1;
+    color: black;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    width: calc(100% - 20px); /* Adjusts input width */
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="date"] {
+    padding: 5px 8px;
+    appearance: none;
+  }
+  
+  select {
+    -webkit-appearance: none;  /* Remove default dropdown appearance */
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  select:focus {
+    outline: none;  /* Optional: remove the focus outline */
+  }
+  
+  /* Calendar Input Styling */
+  .year-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .year-input {
+    width: calc(50% - 10px);  /* Adjust width for two inputs to sit side by side with a gap */
+  }
+  
+  .year-input:last-child {
+    margin-left: 10px; /* Adds space between the two inputs */
+  }
+  
+  .year-message{
+    color: #808080;
+  }
+  
+  .years-selected{
+    color: #808080;
+  }
+  
+  .year-input-box {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    background-color: lightgray;
+    box-shadow: 0px -4px 2px -2px gray;
+    width: 100vw;
+    margin-top: 20px;
+  }
+  
+  .cancel-button,
+  .next-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 120px; /* Set a maximum width for the button */
+    overflow: hidden; /* Prevent overflow if content is too long */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; 
+  }
+  
+  .cancel-button {
+    background-color: white;
+  }
+  
+  .next-button {
+    background-color: blue;
+    color: white;
+  }
+  
+  .exit-button {
+    background-color: blue;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .next-button:hover {
+    background-color: #0044cc;
+  }
+  
+  .exit-button:hover {
+    background-color: #0044cc;
+  }
+  
+  .previous-button, .next-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 120px; /* Set a maximum width for the button */
+    overflow: hidden; /* Prevent overflow if content is too long */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; 
+  }
+  
+  .previous-button, .exit-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 120px; /* Set a maximum width for the button */
+    overflow: hidden; /* Prevent overflow if content is too long */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; 
+  }
+  
+  .previous-button {
+    background-color: white;
+  }
+  
+  .previous-button:hover {
+    background-color: lightgrey;
+  }
+  
+  /* Base style for radio buttons */
+  .radio-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Hide the default radio buttons */
+  .radio-group input[type="radio"] {
+    display: none;
+  }
+  
+  /* Label styled as button */
+  .radio-group label {
+    padding: 10px 20px;
+    background-color: #d3d3d3; /* Light grey background for unselected button */
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  /* Change style for the selected button */
+  .radio-group input[type="radio"]:checked + label {
+    background-color: blue; /* Blue background for selected */
+    color: white; /* White text when selected */
+  }
+  
+  /* Hover effect for buttons */
+  .radio-group label:hover {
+    background-color: #808080; /* Slightly darker grey on hover */
+  }
+  
+  /* Container for fields inside a horizontal box */
+  .horizontal-box {
+    display: flex;
+    justify-content: space-between; /* Ensures equal spacing between the fields */
+    gap: 10px; /* Adds some space between fields */
+    margin-top: 10px; /* Optional: Adjust the top margin for spacing */
+  }
+  
+  .field {
+    flex: 1; /* Ensures each field takes equal width */
+  }
+  
+  label.label-left {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  input, select {
+    width: calc(100% - 20px); /* Adjusts input width */
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Add a transparent background for the box containing fields */
+  .transparent-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  /* Ensure that the file input and labels align nicely */
+  input[type="file"] {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .label-left1{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .download-template {
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    width:220px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top: 50px;
+  }
+  
+  .download-template:hover {
+    background-color: #e0f7ff;
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .drag-drop-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 50vw;
+  }
+  
+  .drag-drop-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .drag-drop-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .drag-drop-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .browse-button {
+    padding: 10px 20px;
+    margin-left: auto;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .browse-button:hover {
+    border-color: #1F51FF; /* Darker blue on hover */
+    color: #1F51FF;
+  }
+  
+  .file-input-label {
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .upload-info {
+    margin-top: 10px;
+    color: #28a745;
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  /* Upload text styling */
+  .upload-text {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  /* Subtext below the main text */
+  .upload-subtext {
+    font-size: 12px;
+    color: #808080;
+    margin-top: 5px;
+  }
+  
+  .label-left2{
+    flex: 1;
+    color: black;
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  /* Base style for radio buttons */
+  .radio-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Hide the default radio buttons */
+  .radio-group input[type="radio"] {
+    display: none;
+  }
+  
+  /* Label styled as button */
+  .radio-group label {
+    padding: 10px 20px;
+    background-color: #d3d3d3; /* Light grey background for unselected button */
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  /* Change style for the selected button */
+  .radio-group input[type="radio"]:checked + label {
+    background-color: blue; /* Blue background for selected */
+    color: white; /* White text when selected */
+  }
+  
+  /* Hover effect for buttons */
+  .radio-group label:hover {
+    background-color: #808080; /* Slightly darker grey on hover */
+  }
+  
+  .generate-plot-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .generate-plot-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .chart-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .ecos-timezone{
+    color: #000;
+    margin-top: 60px;
+  }
+  
+  .time-zone-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #000;
+    margin-right: 5px;
+  }
+  
+  
+  .bar-chart-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .bar-chart {
+    width: 45%; /* Adjust size as needed */
+  }
+  
+  .monthly-graphs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 graphs per row */
+    gap: 20px;
+    padding: 20px;
+    color: #000;
+  }
+  
+  .monthly-graph-container {
+    width: 100%;
+    height: 200px;  /* Smaller height for each graph */
+  }
+  
+  .month-picker {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000;
+  }
+  
+  /* Styles for Export and Share Buttons */
+  .export-share-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Export Report Button */
+  .export-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .export-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Share Report Button */
+  .share-btn {
+    background-color: #2196F3; /* Blue */
+    color: white;
+  }
+  
+  .share-btn:hover {
+    background-color: #0b7dda;
+  }
+  
+  

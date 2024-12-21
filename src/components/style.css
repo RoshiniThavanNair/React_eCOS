@@ -1,0 +1,68 @@
+/* General styling for the body */
+body {
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  text-align: center; /* Center all text in body */
+}
+
+/* Header styles */
+h1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+  color: #255595;
+  text-align: center; /* Center the h1 */
+}
+
+h2 {
+  font-size: 2em;
+  margin: 30px 0;
+  color: #328AB3;
+  text-align: center; /* Center the h2 */
+}
+
+/* Account types container */
+.account-types {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Add space between title and boxes */
+}
+
+/* Account box styles */
+.account-box {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 30px;
+  width: 250px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.account-box:hover {
+  transform: scale(1.05);
+}
+
+.account-box img {
+  width: 70px;
+  height: 70px;
+}
+
+.account-box span {
+  display: block;
+  margin-top: 15px;
+  font-size: 1.5em;
+  color: black;
+}
